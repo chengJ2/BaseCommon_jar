@@ -1,0 +1,12 @@
+/bin
+/gen
+/assets/
+/.settings/org.eclipse.jdt.core.prefs
+/project.properties
+.gitignore
+.classpath
+.project
+.git
+.settings
+proguard-project.txt
+lint.xml
