@@ -1,0 +1,63 @@
+package com.whjz.android.util.common;
+
+import java.util.List;
+
+import com.whjz.android.text.CommonText;
+
+/**
+ * @author
+ * @category 封装成请求json
+ */
+public class XmlPackage {
+
+	/**
+	 * 
+	 * @param username
+	 *            用户名
+	 * @param pwd
+	 *            用户密码
+	 * @param functionname
+	 *            存储过程
+	 * @param style
+	 *            "操作方式1234，分别代表查询，删除，修改，增加"
+	 * @param params
+	 *            字段名
+	 * @param paramvalue
+	 *            字段值
+	 * @param b
+	 * @return
+	 * @eg 封装成如下格式:<br>
+	 *     {"username":"1111","pwd":"1111"},{"functionname":"getYDZF_COMPANY",
+	 *     "style":"1"},{"WRY_BM":"2012112218460087481"}
+	 */
+	public static String getXmlRequest(String username, String pwd, String functionname, int style,
+			List<String> params, List<String> paramvalue, boolean b) {
+		StringBuffer XmlRequest = new StringBuffer();
+		XmlRequest.append("{\"username\":\"" + username + "\",\"pwd\":\"" + pwd + "\"}," + "{\"functionname\":\""
+				+ functionname + "\",\"style\":\"" + style + "\"}");
+		if(params != null && paramvalue != null){
+			if (paramvalue.size() == params.size()) {
+				int size = params.size();
+				String str = "";
+				for (int i = 0; i < size; i++) {
+					str = ",{\"" + params.get(i) + "\":\"" + paramvalue.get(i) + "\"}";
+					XmlRequest.append(str);
+				}
+			}else if(paramvalue.size() != params.size()){
+				MyLog.d("输入的两个参数的个数不一致");
+			}
+		}
+		MyLog.d("Request_Xml========" + XmlRequest.toString());// 请求语句
+		if (CommonText.UNSECRET) {
+			if (b) {
+				return XmlRequest.toString();
+			} else {
+				return EncryptUncrypt.encryptAndUncrypt(XmlRequest.toString(), CommonText.secret);
+			}
+
+		} else {
+			return XmlRequest.toString();
+		}
+
+	}
+}
