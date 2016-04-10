@@ -5,36 +5,30 @@ import java.util.List;
 import com.whjz.android.text.CommonText;
 
 /**
- * @author
- * @category ·â×°³ÉÇëÇójson
+ * @author 
+ * @category å°è£…æˆè¯·æ±‚json
  */
 public class XmlPackage {
 
 	/**
 	 * 
-	 * @param username
-	 *            ÓÃ»§Ãû
-	 * @param pwd
-	 *            ÓÃ»§ÃÜÂë
-	 * @param functionname
-	 *            ´æ´¢¹ı³Ì
-	 * @param style
-	 *            "²Ù×÷·½Ê½1234£¬·Ö±ğ´ú±í²éÑ¯£¬É¾³ı£¬ĞŞ¸Ä£¬Ôö¼Ó"
-	 * @param params
-	 *            ×Ö¶ÎÃû
-	 * @param paramvalue
-	 *            ×Ö¶ÎÖµ
-	 * @param b
-	 * @return
-	 * @eg ·â×°³ÉÈçÏÂ¸ñÊ½:<br>
-	 *     {"username":"1111","pwd":"1111"},{"functionname":"getYDZF_COMPANY",
-	 *     "style":"1"},{"WRY_BM":"2012112218460087481"}
+	 * @param username ç”¨æˆ·å
+	 * @param pwd  ç”¨æˆ·å¯†ç 
+	 * @param functionname  å­˜å‚¨è¿‡ç¨‹ 
+	 * @param style  "æ“ä½œæ–¹å¼1234ï¼Œåˆ†åˆ«ä»£è¡¨æŸ¥è¯¢ï¼Œåˆ é™¤ï¼Œä¿®æ”¹ï¼Œå¢åŠ "
+	 * @param params  å­—æ®µå
+	 * @param paramvalue å­—æ®µå€¼
+	 * @return  
+	 * @eg å°è£…æˆå¦‚ä¸‹æ ¼å¼:<br> 
+	 * {"username":"1111","pwd":"1111"},{"functionname":"getYDZF_COMPANY","style":"1"},{"WRY_BM":"2012112218460087481"}
 	 */
-	public static String getXmlRequest(String username, String pwd, String functionname, int style,
-			List<String> params, List<String> paramvalue, boolean b) {
+	public static String getXmlRequest(String username, String pwd,
+			String functionname, int style, List<String> params,
+			List<String> paramvalue) {
+
 		StringBuffer XmlRequest = new StringBuffer();
-		XmlRequest.append("{\"username\":\"" + username + "\",\"pwd\":\"" + pwd + "\"}," + "{\"functionname\":\""
-				+ functionname + "\",\"style\":\"" + style + "\"}");
+		XmlRequest.append("{\"username\":\"" + username + "\",\"pwd\":\"" + pwd + "\"},"
+				+ "{\"functionname\":\"" + functionname + "\",\"style\":\"" + style + "\"}");
 		if(params != null && paramvalue != null){
 			if (paramvalue.size() == params.size()) {
 				int size = params.size();
@@ -44,20 +38,47 @@ public class XmlPackage {
 					XmlRequest.append(str);
 				}
 			}else if(paramvalue.size() != params.size()){
-				MyLog.d("ÊäÈëµÄÁ½¸ö²ÎÊıµÄ¸öÊı²»Ò»ÖÂ");
+				MyLog.d("è¾“å…¥çš„ä¸¤ä¸ªå‚æ•°çš„ä¸ªæ•°ä¸ä¸€è‡´");
 			}
 		}
-		MyLog.d("Request_Xml========" + XmlRequest.toString());// ÇëÇóÓï¾ä
-		if (CommonText.UNSECRET) {
-			if (b) {
-				return XmlRequest.toString();
-			} else {
-				return EncryptUncrypt.encryptAndUncrypt(XmlRequest.toString(), CommonText.secret);
-			}
-
-		} else {
+		MyLog.d("Request Xml====æœªåŠ å¯†======"+ XmlRequest.toString());//è¯·æ±‚è¯­å¥
+		if(CommonText.UNSECRET){
+			return EncryptUncrypt.encryptAndUncrypt(XmlRequest.toString(), CommonText.secret);
+		}else{
 			return XmlRequest.toString();
 		}
-
+        
 	}
+	
+	public static String getXmlFileRequest(String username, String pwd,
+			String functionname, int style, List<String> params,
+			List<String> paramvalue) {
+
+		StringBuffer XmlRequest = new StringBuffer();
+		XmlRequest.append("{\"username\":\"" + username + "\",\"pwd\":\"" + pwd + "\"},"
+				+ "{\"functionname\":\"" + functionname + "\",\"style\":\"" + style + "\"}");
+		if (params != null && params.size() > 0 && paramvalue != null
+				&& paramvalue.size() == params.size()) {
+
+			int size = params.size();
+
+			String str = "";
+
+			for (int i = 0; i < size; i++) {
+
+				str = ",{\"" + params.get(i) + "\":\"" + paramvalue.get(i) + "\"}";
+				XmlRequest.append(str);
+
+			}
+
+//			XmlRequest.append(str);
+
+		}else if(paramvalue.size() != params.size()){
+			MyLog.d("è¾“å…¥çš„ä¸¤ä¸ªå‚æ•°çš„ä¸ªæ•°ä¸ä¸€è‡´");
+		}
+		MyLog.d("Request Xml=========="+ XmlRequest.toString());//è¯·æ±‚è¯­å¥
+		return XmlRequest.toString();
+        
+	}
+
 }

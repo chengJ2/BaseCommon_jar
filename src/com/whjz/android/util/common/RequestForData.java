@@ -20,9 +20,9 @@ import android.os.StrictMode;
 import com.whjz.android.text.CommonText;
 
 /**
- * @author ZhangYuHao
- * @category ´ÓÍøÂçÇëÇóÊı¾İ·µ»ØDataSetList
- * 
+ * ä»ç½‘ç»œè¯·æ±‚æ•°æ®è¿”å›DataSetList
+ * @author Administrator
+ *
  */
 public class RequestForData {
 
@@ -31,16 +31,15 @@ public class RequestForData {
 	 * @param methodName
 	 * @param endPoint
 	 * @param params
-	 *            ÇëÇó´«µİµÄ²ÎÊı
-	 * @param b 
-	 * @return ´ÓÍøÂçÇëÇóÊı¾İ·µ»ØDataSetList
+	 *            è¯·æ±‚ä¼ é€’çš„å‚æ•°
+	 * @return ä»ç½‘ç»œè¯·æ±‚æ•°æ®è¿”å›DataSetList
 	 */
 	@SuppressLint("NewApi")
 	public static DataSetList getResultData(String nameSpace,
-			String methodName, String endPoint, String params, byte[] data, boolean b) {
+			String methodName, String endPoint, String params, byte[] data,boolean ISSECRET) {
 
 		DataSetList parsedExampleDataSet = null;
-		// android3.0ÒÔÉÏĞèÒª¼ÓÉÏÏÂÃæ¼¸¾ä»°
+		// android3.0ä»¥ä¸Šéœ€è¦åŠ ä¸Šä¸‹é¢å‡ å¥è¯
 		if (android.os.Build.VERSION.SDK_INT > 10) {
 		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
 				.detectDiskReads().detectDiskWrites().detectNetwork()
@@ -51,38 +50,39 @@ public class RequestForData {
 		}
 		String soapAction = nameSpace + methodName;
 
-		// Ö¸¶¨WebServiceµÄÃüÃû¿Õ¼äºÍµ÷ÓÃµÄ·½·¨Ãû
+		// æŒ‡å®šWebServiceçš„å‘½åç©ºé—´å’Œè°ƒç”¨çš„æ–¹æ³•å
 		SoapObject rpc = new SoapObject(nameSpace, methodName);
 
-		// ÉèÖÃĞèµ÷ÓÃWebService½Ó¿ÚĞèÒª´«ÈëµÄÁ½¸ö²ÎÊımobileCode¡¢userId
+		// è®¾ç½®éœ€è°ƒç”¨WebServiceæ¥å£éœ€è¦ä¼ å…¥çš„ä¸¤ä¸ªå‚æ•°mobileCodeã€userId
 		rpc.addProperty("dataTableName", params);
 
 		if (data != null) {
+
 			rpc.addProperty("contentBytes", data);
+
 		}
 
-		// »ñÈ¡·µ»ØµÄ½á¹û
+		// è·å–è¿”å›çš„ç»“æœ
 		String result = null;
 		
-		// Éú³Éµ÷ÓÃWebService·½·¨µÄSOAPÇëÇóĞÅÏ¢,²¢Ö¸¶¨SOAPµÄ°æ±¾
+		// ç”Ÿæˆè°ƒç”¨WebServiceæ–¹æ³•çš„SOAPè¯·æ±‚ä¿¡æ¯,å¹¶æŒ‡å®šSOAPçš„ç‰ˆæœ¬
 		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
 				SoapEnvelope.VER11);
 
 		envelope.bodyOut = rpc;
-		// ÉèÖÃÊÇ·ñµ÷ÓÃµÄÊÇdotNet¿ª·¢µÄWebService
+		// è®¾ç½®æ˜¯å¦è°ƒç”¨çš„æ˜¯dotNetå¼€å‘çš„WebService
 		envelope.dotNet = true;
-		// µÈ¼ÛÓÚenvelope.bodyOut = rpc;
+		// ç­‰ä»·äºenvelope.bodyOut = rpc;
 		envelope.setOutputSoapObject(rpc);
-//		HttpTransportSE transport = new HttpTransportSE(endPoint);
 		HttpTransportSE transport = new MyAndroidHttpTransport(endPoint,10*1000);
 		try {
-			// µ÷ÓÃWebService
+			// è°ƒç”¨WebService
 			transport.call(soapAction, envelope);
 		} catch (Exception e) {
 			result = "<?xml version=\"1.0\" encoding=\"utf-8\"?><root><child><key>msg</key><value>timeout</value></child></root>";
 			e.printStackTrace();
 		}
-		// »ñÈ¡·µ»ØµÄÊı¾İ
+		// è·å–è¿”å›çš„æ•°æ®
 		SoapObject object;
 		try {
 			object = (SoapObject) envelope.bodyIn;
@@ -96,42 +96,35 @@ public class RequestForData {
 		if (object != null) {
 			try {
 				result = object.getProperty(0).toString();
-//				MyLog.d("System.out", "==Response=="+result);
-					if(CommonText.UNSECRET){
-						if(!b){
-							result=EncryptUncrypt.encryptAndcrypt(result, CommonText.secret);
-						}
-					}
+				if(ISSECRET){
+					result=EncryptUncrypt.encryptAndcrypt(result, CommonText.secret);
+				}
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				result = null;
 				e.printStackTrace();
 			}
 		}
-
-		MyLog.d("==½âÃÜºóResponse=="+result);
+		
+		MyLog.d("==è§£å¯†åResponse==>>" + result);
 		if (result != null) {
-//			result=
 			try {
 				SAXParserFactory saxParserFactory = SAXParserFactory
 						.newInstance();
 				XMLReader reader = saxParserFactory.newSAXParser()
 						.getXMLReader();
-
 				XMLContentHandlerForList myExampleHandler = new XMLContentHandlerForList();
 				reader.setContentHandler(myExampleHandler);
 				reader.parse(new InputSource(new StringReader(result)));
 				parsedExampleDataSet = myExampleHandler.dataSet;
 			} catch (SAXException e) {
-				// TODO Auto-generated catch block
 				parsedExampleDataSet = null;
 				e.printStackTrace();
 			} catch (ParserConfigurationException e) {
-				// TODO Auto-generated catch block
 				parsedExampleDataSet = null;
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				parsedExampleDataSet = null;
 				e.printStackTrace();
 			}

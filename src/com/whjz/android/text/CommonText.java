@@ -4,10 +4,11 @@ public class CommonText {
 	
 	public static final boolean DEBUG = true;//日志输出开关,true:打印输出，false:关闭打印输出
 	public static final String LOGTAG = "CJLog";
-	public static final boolean UNSECRET=false;//是否加密，false不加密；true加密
+	public static final boolean UNSECRET= true;//是否加密，false不加密；true加密
 	public static final char secret='z';//加密密钥
 	
-	public static String endPoint=  "http://221.232.152.201:4044"; 
+//	public static String endPoint=  "http://192.168.1.105:8020"; 
+	public static String endPoint=  "http://10.0.0.2:8020"; 
 	
 	// 数据库名称常量
 	public static final String DATABASE_NAME = "myResume.db";
@@ -15,6 +16,9 @@ public class CommonText {
 	public static final int DATEBASE_VERSION = 1;
 	
 	// 数据库表名称常量
+	
+	public static final String USERINFO="userinfo";// 用户注册信息
+	public static final String BASEINFO="baseinfo";// 基本信息
 	public static final String WORKEXPERIENCE="work_experience";// 工作经历
 	public static final String EVALUATION="evaluation";// 自我评价
 	public static final String JOBINTENSION="job_intension";// 求职意向

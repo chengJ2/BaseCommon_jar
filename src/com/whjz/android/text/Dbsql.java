@@ -6,6 +6,16 @@ package com.whjz.android.text;
  *
  */
 public class Dbsql {
+	// 用户注册信息
+	String userinfo_aql = "create table "
+			+ CommonText.USERINFO
+			+ "(_id integer primary key autoincrement,username TEXT, userpassword TEXT,deviceId TEXT,patform TEXT,createtime TEXT,lastlogintime TEXT)";
+	// 用户基本信息
+	String baseinfo_aql = "create table "
+			+ CommonText.BASEINFO
+			+ "(_id integer primary key autoincrement,userId TEXT, realname TEXT, gender TEXT,"
+			+ "brithday TEXT, joinworktime TEXT,phone TEXT, hometown TEXT, areacity TEXT,areaemail TEXT,"
+			+ " ismarry TEXT,nationality TEXT,license TEXT,workingabroad TEXT,politicalstatus TEXT,avator TEXT)";
 	// 工作经历数据
 	String work_experience_aql = "create table "
 			+ CommonText.WORKEXPERIENCE
@@ -19,7 +29,7 @@ public class Dbsql {
 	
 	// 求职意向数据
 	String job_intension_aql = "create table "
-			+ CommonText.EVALUATION
+			+ CommonText.JOBINTENSION
 			+ "(_id integer primary key autoincrement,userId TEXT, expectedworkingproperty TEXT, expectedworkplace TEXT,"
 			+ " expectedworkindustry TEXT,expectedworkcareer TEXT,expectedmonthlysalary TEXT,workingstate TEXT)";
 	
@@ -39,6 +49,6 @@ public class Dbsql {
 			+ " expectedworkindustry TEXT)";
 	
 	/* 创建数据库表的语句 */
-	public String createTableSql[] = {work_experience_aql,evaluation_aql,job_intension_aql};
+	public String createTableSql[] = {userinfo_aql,baseinfo_aql,work_experience_aql,evaluation_aql,job_intension_aql};
 
 }

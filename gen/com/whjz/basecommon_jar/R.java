@@ -42,18 +42,18 @@ public final class R {
         public static int update_bg=0x7f02001c;
     }
     public static final class id {
-        public static int list_item_textview=0x7f04000a;
-        public static int selected_view=0x7f040000;
-        public static int xListView=0x7f04000b;
-        public static int xlistview_footer_content=0x7f040001;
-        public static int xlistview_footer_hint_textview=0x7f040003;
-        public static int xlistview_footer_progressbar=0x7f040002;
-        public static int xlistview_header_arrow=0x7f040008;
-        public static int xlistview_header_content=0x7f040004;
-        public static int xlistview_header_hint_textview=0x7f040006;
-        public static int xlistview_header_progressbar=0x7f040009;
-        public static int xlistview_header_text=0x7f040005;
-        public static int xlistview_header_time=0x7f040007;
+        public static int list_item_textview=0x7f05000a;
+        public static int selected_view=0x7f050000;
+        public static int xListView=0x7f05000b;
+        public static int xlistview_footer_content=0x7f050001;
+        public static int xlistview_footer_hint_textview=0x7f050003;
+        public static int xlistview_footer_progressbar=0x7f050002;
+        public static int xlistview_header_arrow=0x7f050008;
+        public static int xlistview_header_content=0x7f050004;
+        public static int xlistview_header_hint_textview=0x7f050006;
+        public static int xlistview_header_progressbar=0x7f050009;
+        public static int xlistview_header_text=0x7f050005;
+        public static int xlistview_header_time=0x7f050007;
     }
     public static final class layout {
         public static int base_xlistview_footer=0x7f030000;
@@ -61,13 +61,16 @@ public final class R {
         public static int list_item=0x7f030002;
         public static int testlistview=0x7f030003;
     }
+    public static final class raw {
+        public static int myresume=0x7f040000;
+    }
     public static final class string {
-        public static int xlistview_footer_hint_normal=0x7f050004;
-        public static int xlistview_footer_hint_ready=0x7f050005;
-        public static int xlistview_header_hint_loading=0x7f050002;
-        public static int xlistview_header_hint_normal=0x7f050000;
-        public static int xlistview_header_hint_ready=0x7f050001;
-        public static int xlistview_header_last_time=0x7f050003;
+        public static int xlistview_footer_hint_normal=0x7f060004;
+        public static int xlistview_footer_hint_ready=0x7f060005;
+        public static int xlistview_header_hint_loading=0x7f060002;
+        public static int xlistview_header_hint_normal=0x7f060000;
+        public static int xlistview_header_hint_ready=0x7f060001;
+        public static int xlistview_header_last_time=0x7f060003;
     }
     public static final class style {
         /** 
@@ -80,15 +83,15 @@ public final class R {
             backward-compatibility can go here.
         
          */
-        public static int AppBaseTheme=0x7f060000;
+        public static int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static int AppTheme=0x7f060001;
+        public static int AppTheme=0x7f070001;
         /**   <item name="android:indeterminateDrawable">@drawable/progressbar_indeter</item>
 	    <item name="android:minHeight">20dip</item>
 	    <item name="android:maxHeight">20dip</item> 
          */
-        public static int my_pb=0x7f060002;
+        public static int my_pb=0x7f070002;
     }
 }

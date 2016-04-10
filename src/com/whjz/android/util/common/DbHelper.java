@@ -41,7 +41,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-
+		MyLog.d("=====创建表=======");
 		Dbsql sqls = new Dbsql();
 		int size = sqls.createTableSql.length;
 		for (int i = 0; i < size; i++) {
@@ -157,5 +157,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		MyLog.d("=====更新表=======");
 	}
 }
