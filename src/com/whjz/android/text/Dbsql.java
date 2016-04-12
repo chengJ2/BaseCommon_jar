@@ -31,24 +31,36 @@ public class Dbsql {
 	String job_intension_aql = "create table "
 			+ CommonText.JOBINTENSION
 			+ "(_id integer primary key autoincrement,userId TEXT, expectedworkingproperty TEXT, expectedworkplace TEXT,"
-			+ " expectedworkindustry TEXT,expectedworkcareer TEXT,expectedmonthlysalary TEXT,workingstate TEXT)";
+			+ " expectedworkindustry TEXT,expectedworkcareer TEXT,expectedmonthlysalary TEXT,workingstate TEXT,createtime TEXT)";
+	
+	String education_aql = "create table "
+			+ CommonText.EDUCATION
+			+ "(_id integer primary key autoincrement,userId TEXT, time TEXT, school TEXT,"
+			+ " examination TEXT,majorname TEXT,degree TEXT,createtime TEXT)";
+	
+	String training_aql = "create table "
+			+ CommonText.EDUCATION_TRAIN
+			+ "(_id integer primary key autoincrement,userId TEXT, time TEXT, trainingorganization TEXT,"
+			+ " trainingclass TEXT,certificate TEXT,description TEXT,createtime TEXT)";
+	
 	
 	String otherinfo_aql = "create table "
 			+ CommonText.OTHERINFO
-			+ "(_id integer primary key autoincrement,userId TEXT, expectedworkingproperty TEXT, expectedworkplace TEXT,"
-			+ " expectedworkindustry TEXT)";
+			+ "(_id integer primary key autoincrement,userId TEXT, language TEXT, literacyskills TEXT,"
+			+ " listeningspeaking TEXT,createtime TEXT)";
 	
 	String otherinfo1_aql = "create table "
 			+ CommonText.OTHERINFO1
-			+ "(_id integer primary key autoincrement,userId TEXT, expectedworkingproperty TEXT, expectedworkplace TEXT,"
-			+ " expectedworkindustry TEXT)";
+			+ "(_id integer primary key autoincrement,userId TEXT, certificate TEXT, certificatetime TEXT,"
+			+ " createtime TEXT)";
 	
 	String otherinfo2_aql = "create table "
 			+ CommonText.OTHERINFO2
-			+ "(_id integer primary key autoincrement,userId TEXT, expectedworkingproperty TEXT, expectedworkplace TEXT,"
-			+ " expectedworkindustry TEXT)";
+			+ "(_id integer primary key autoincrement,userId TEXT, title TEXT, description TEXT,"
+			+ " createtime TEXT)";
 	
 	/* 创建数据库表的语句 */
-	public String createTableSql[] = {userinfo_aql,baseinfo_aql,work_experience_aql,evaluation_aql,job_intension_aql};
+	public String createTableSql[] = {userinfo_aql,baseinfo_aql,work_experience_aql,evaluation_aql,
+				education_aql,training_aql,job_intension_aql};
 
 }
