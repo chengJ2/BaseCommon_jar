@@ -7,11 +7,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author ZhangYuHao
- * @date 2013-3-1ÏÂÎç04:47:53
- * @category ´ÓÍøÂç»ñÈ¡Êı¾İºó´æ´¢µÄÊı¾İ½á¹¹
+ * 
+* @ClassName: DataSetList 
+* @Description: ä»ç½‘ç»œè·å–æ•°æ®åå­˜å‚¨çš„æ•°æ®ç»“æ„
+* @author Comsys-WH1510032 
+* @date 2016/4/14 ä¸‹åˆ3:12:50 
+*
  */
 public class DataSetList implements Serializable{
+	/** 
+	* @Fields serialVersionUID : TODO(ç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªå˜é‡è¡¨ç¤ºä»€ä¹ˆ) 
+	*/ 
+	private static final long serialVersionUID = 1L;
 	public Map<String, List<String>> map=new HashMap<String, List<String>>();
 	public String type;
 	public List<String> nameList=new ArrayList<String>();
@@ -22,11 +29,11 @@ public class DataSetList implements Serializable{
 	public String ERROR="";
 	public String SUCCESS="";
 	
-	public static String autoTextData[];//ËÑË÷ÆóÒµµÄÊı¾İÔ´
-	public static String groupsValue[];//¸¸½ÚµãÖµÊı×é
-	public static String childrenValue[][];//×Ó½ÚµãÖµÊı×é
-	public static String childrenId[][];//ÆóÒµ±àºÅ
-//	Ã»ÓĞ×Ó½ÚµãµÄµ÷ÓÃ´Ë·½·¨
+	public static String autoTextData[];//æœç´¢ä¼ä¸šçš„æ•°æ®æº
+	public static String groupsValue[];//çˆ¶èŠ‚ç‚¹å€¼æ•°ç»„
+	public static String childrenValue[][];//å­èŠ‚ç‚¹å€¼æ•°ç»„
+	public static String childrenId[][];//ä¼ä¸šç¼–å·
+//	æ²¡æœ‰å­èŠ‚ç‚¹çš„è°ƒç”¨æ­¤æ–¹æ³•
 	public Map<String, List<String>> getMap(){
 		int num=nameList.size();
 		for(int i=0;i<num;i++){
@@ -38,7 +45,7 @@ public class DataSetList implements Serializable{
 		}
 		return map;
 	}
-//	ÓĞ×Ó½ÚµãµÄµ÷ÓÃ´Ë·½·¨
+//	æœ‰å­èŠ‚ç‚¹çš„è°ƒç”¨æ­¤æ–¹æ³•
 
 
 }

@@ -14,7 +14,7 @@ public class Dbsql {
 	String baseinfo_aql = "create table "
 			+ CommonText.BASEINFO
 			+ "(_id integer primary key autoincrement,userId TEXT, realname TEXT, gender TEXT,"
-			+ "brithday TEXT, joinworktime TEXT,phone TEXT, hometown TEXT, areacity TEXT,areaemail TEXT,"
+			+ "brithday TEXT, joinworktime TEXT,phone TEXT, hometown TEXT, areacity TEXT,email TEXT,"
 			+ " ismarry TEXT,nationality TEXT,license TEXT,workingabroad TEXT,politicalstatus TEXT,avator TEXT)";
 	// 工作经历数据
 	String work_experience_aql = "create table "
@@ -22,7 +22,7 @@ public class Dbsql {
 			+ "(_id integer primary key autoincrement,userId TEXT, companyname TEXT, industryclassification TEXT,"
 			+ "jobtitle TEXT, worktimeStart TEXT,worktimeEnd TEXT, expectedsalary TEXT, workdesc TEXT,createtime TEXT)";
 	
-	// 教育培顺经历
+	// 自我评价
 	String evaluation_aql = "create table "
 			+ CommonText.EVALUATION
 			+ "(_id integer primary key autoincrement,userId TEXT, selfevaluation TEXT, careergoal TEXT,createtime TEXT)";
@@ -30,14 +30,15 @@ public class Dbsql {
 	// 求职意向数据
 	String job_intension_aql = "create table "
 			+ CommonText.JOBINTENSION
-			+ "(_id integer primary key autoincrement,userId TEXT, expectedworkingproperty TEXT, expectedworkplace TEXT,"
-			+ " expectedworkindustry TEXT,expectedworkcareer TEXT,expectedmonthlysalary TEXT,workingstate TEXT,createtime TEXT)";
+			+ "(_id integer primary key autoincrement,userId TEXT, expworkingproperty TEXT, expdworkplace TEXT,"
+			+ " expworkindustry TEXT,expworkcareer TEXT,expmonthlysalary TEXT,workingstate TEXT,createtime TEXT)";
 	
+	// 教育经历
 	String education_aql = "create table "
 			+ CommonText.EDUCATION
 			+ "(_id integer primary key autoincrement,userId TEXT, time TEXT, school TEXT,"
 			+ " examination TEXT,majorname TEXT,degree TEXT,createtime TEXT)";
-	
+	// 培顺经历
 	String training_aql = "create table "
 			+ CommonText.EDUCATION_TRAIN
 			+ "(_id integer primary key autoincrement,userId TEXT, time TEXT, trainingorganization TEXT,"
@@ -61,6 +62,6 @@ public class Dbsql {
 	
 	/* 创建数据库表的语句 */
 	public String createTableSql[] = {userinfo_aql,baseinfo_aql,work_experience_aql,evaluation_aql,
-				education_aql,training_aql,job_intension_aql};
+				education_aql,training_aql,job_intension_aql,otherinfo_aql,otherinfo1_aql,otherinfo2_aql};
 
 }

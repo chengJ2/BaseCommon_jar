@@ -4,44 +4,47 @@ import java.io.UnsupportedEncodingException;
 import android.util.Base64;
 
 /**
- * ÔÚÀàÖĞ±àĞ´Ê¹ÓÃÒì»òÔËËã½øĞĞ¼Ó½âÃÜµÄ·½·¨
- * @author Zhang Yuhao
- * @2013-10-8 ÏÂÎç05:29:59
+ * 
+* @ClassName: EncryptUncrypt 
+* @Description: ä½¿ç”¨å¼‚æˆ–è¿ç®—è¿›è¡ŒåŠ è§£å¯†çš„æ–¹æ³• 
+* @author Comsys-WH1510032 
+* @date 2016/4/14 ä¸‹åˆ3:10:08 
+*
  */
 public class EncryptUncrypt {
 	/**
-	 * ¼ÓÃÜ
+	 * åŠ å¯†
 	 * @param value
 	 * @param secret
 	 * @return
 	 */
 	public static String encryptAndUncrypt(String value, char secret) {
-		// ¶Ôvalue¼ÓÃÜ£¬secretÃÜÎÄ×Ö·û
+		// å¯¹valueåŠ å¯†ï¼Œsecretå¯†æ–‡å­—ç¬¦
 		byte[] bt = value.getBytes();
-		// ½«ĞèÒª¼ÓÃÜµÄÄÚÈİ×ª»»Îª×Ö½ÚÊı×é
+		// å°†éœ€è¦åŠ å¯†çš„å†…å®¹è½¬æ¢ä¸ºå­—èŠ‚æ•°ç»„
 		for (int i = 0; i < bt.length; i++) {
-			bt[i] = (byte) (bt[i] ^ (int) secret); // Í¨¹ıÒì»òÔËËã½øĞĞ¼ÓÃÜ
+			bt[i] = (byte) (bt[i] ^ (int) secret); // é€šè¿‡å¼‚æˆ–è¿ç®—è¿›è¡ŒåŠ å¯†
 		}
-		/*×ªÎªbase×Ö½ÚÁ÷*/
+		/*è½¬ä¸ºbaseå­—èŠ‚æµ*/
 		byte[] bts=Base64.encode(bt, Base64.DEFAULT);
-		return new String(bts, 0, bts.length);// ·µ»Ø¼ÓÃÜºóµÄ×Ö·û´®
+		return new String(bts, 0, bts.length);// è¿”å›åŠ å¯†åçš„å­—ç¬¦ä¸²
 	}
 	/**
-	 * ½âÃÜ
+	 * è§£å¯†
 	 * @param value
 	 * @param secret
 	 * @return
 	 * @throws UnsupportedEncodingException 
 	 */
 	public static String encryptAndcrypt(String value, char secret) throws UnsupportedEncodingException  {
-		/*×ªÎªbase×Ö½ÚÁ÷*/
+		/*è½¬ä¸ºbaseå­—èŠ‚æµ*/
 		byte[] bt=Base64.decode(value.getBytes(), Base64.DEFAULT);
-		// ¶Ôvalue¼ÓÃÜ£¬secretÃÜÎÄ×Ö·û
-		// ½«ĞèÒª¼ÓÃÜµÄÄÚÈİ×ª»»Îª×Ö½ÚÊı×é
+		// å¯¹valueåŠ å¯†ï¼Œsecretå¯†æ–‡å­—ç¬¦
+		// å°†éœ€è¦åŠ å¯†çš„å†…å®¹è½¬æ¢ä¸ºå­—èŠ‚æ•°ç»„
 		for (int i = 0; i < bt.length; i++) {
-			bt[i] = (byte) (bt[i] ^ (int) secret); // Í¨¹ıÒì»òÔËËã½øĞĞ¼ÓÃÜ
+			bt[i] = (byte) (bt[i] ^ (int) secret); // é€šè¿‡å¼‚æˆ–è¿ç®—è¿›è¡ŒåŠ å¯†
 		}
-		return new String(bt, "utf-8");// ·µ»Ø¼ÓÃÜºóµÄ×Ö·û´®
+		return new String(bt, "utf-8");// è¿”å›åŠ å¯†åçš„å­—ç¬¦ä¸²
 	}
 	
 }

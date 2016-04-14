@@ -8,14 +8,14 @@ public interface BaseCommonUtil {
 
 	/**
 	 * 
-	 * @param username �û���
-	 * @param pwd  �û�����
-	 * @param functionname  �洢��� 
-	 * @param style  "������ʽ1234���ֱ����ѯ��ɾ���޸ģ�����"
-	 * @param params  �ֶ���
-	 * @param paramvalue �ֶ�ֵ
-	 * @return  ��Ҫ��ѯ������װ����ƽ̨��ʽ��Xml,����������ݷ��ز������洢��DataSetList��
-	 * @eg �÷�:<br>
+	 * @param username 用户名
+	 * @param pwd  密码
+	 * @param functionname  接口名 
+	 * @param style  "1,2,3,4.."
+	 * @param params  字段名
+	 * @param paramvalue 字段值
+	 * @return DataSetList
+	 * @eg:<br>
 	 * 		List list1=new ArrayList<String>();<br>
 	 * 		List list2=new ArrayList<String>();<br>
 	 * 		list1.add("WRY_BM");<br>

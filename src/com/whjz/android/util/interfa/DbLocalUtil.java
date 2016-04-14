@@ -1,5 +1,6 @@
 package com.whjz.android.util.interfa;
 
+import java.util.List;
 import java.util.Map;
 
 import android.content.ContentValues;
@@ -8,74 +9,127 @@ import android.content.Context;
 import com.whjz.android.util.common.DataSetList;
 
 /**
- * @author ZhangYuHao
- * @date 2013-3-2下午04:43:39
- * @category 数据本地化操作接口 将网上获得数据保存在本地数据库中，并实现从本地数据库中读取数据
+ * 
+* @ClassName: DbLocalUtil 
+* @Description: 鏈韩鏁版嵁鎿嶄綔鎺ュ彛
+* @author Comsys-WH1510032 
+* @date 2016/4/13 涓嬪崍5:54:59 
+*
  */
 public interface DbLocalUtil {
 	
 	/**
 	 * 
-	 * @param mContext	上下文
-	 * @param mTableName 表名
-	 * @param value 值
+	 * @Title:DbLocalUtil
+	 * @Description: 娣诲姞鏁版嵁
+	 * @author Comsys-WH1510032
+	 * @param mContext
+	 * @param mTableName
+	 * @param values
+	 * @return boolean
 	 */
 	public abstract boolean insertData(Context mContext, String mTableName,
 			ContentValues values);
+	
 	/**
+	 * 
+	 * @Title:DbLocalUtil
+	 * @Description: 鏇存柊鏁版嵁
+	 * @author Comsys-WH1510032
 	 * @param mContext
-	 *            上下文
 	 * @param mTableName
-	 *            表名
+	 * @param values
+	 * @return boolean
+	 */
+	public abstract int updateData(Context mContext, String mTableName,
+			String[] columnName, String[] value);
+	
+	/**
+	 * 
+	 * @Title:DbLocalUtil
+	 * @Description: 鍒犻櫎鏁版嵁
+	 * @author Comsys-WH1510032
+	 * @return 杩斿洖绫诲瀷  
+	 * @param mContext
+	 * @param where
+	 */
+	public abstract boolean updateData(Context mContext, String where);
+	
+	/**
+	 * 
+	 * @Title:DbLocalUtil
+	 * @Description: 娣诲姞鏁版嵁
+	 * @author Comsys-WH1510032
+	 * @return 杩斿洖绫诲瀷  
+	 * @param mContext
+	 * @param mTableName
 	 * @param dataSetList
-	 *            数据结构
-	 * @category 将获得的DataSetList存放在本地数据库中
-	 * @eg DataSetList dataSetlist=baseCommon.selects(...);<br>
-	 *     DbLocalUtil dbUtil=new DbUtilImplement();<br>
-	 *     dbUtil.insertDataSetList(LogoActivity.this, "hour_one",dataSetlist);<br>
 	 */
 	public abstract void insertDataSetList(Context mContext, String mTableName,
 			DataSetList dataSetList);
 	
 	/**
+	 * 
+	 * @Title:DbLocalUtil
+	 * @Description: 鏌ヨ鏁版嵁
+	 * @author Comsys-WH1510032
+	 * @return 杩斿洖绫诲瀷  
 	 * @param mContext
-	 *            上下文
 	 * @param tableName
-	 *            表名
 	 * @param where
-	 *            查询条件
 	 * @return
-	 * @category 从本地数据库中读取数据,并将数据保存在Map<String,
-	 *           String[]>中，格式：String=名称；String[]={"张三","李四","王五"};
-	 * @eg DbLocalUtil dbUtil=new DbUtilImplement();<br>
-	 *     dbUtil.queryData(LogoActivity.this, "hour_one","from hour_one ");<br>
 	 */
 	public abstract Map<String, String[]> queryData(Context mContext,
 			String tableName, String where);
 
 	/**
+	 * 
+	 * @Title:DbLocalUtil
+	 * @Description: 鏌ヨ鏁版嵁
+	 * @author Comsys-WH1510032
+	 * @return 杩斿洖绫诲瀷  
 	 * @param mContext
-	 *            上下文
 	 * @param where
-	 *            完整的sql语句
-	 * @return DataSetList
-	 * @category 从本地数据库中读取数据,并将数据保存在Map<String,
-	 *           String[]>中，格式：String=名称；String[]={"张三","李四","王五"};
-	 * @eg DbLocalUtil dbUtil=new DbUtilImplement();<br>
-	 *     dbUtil.queryData(LogoActivity.this,
-	 *     "select * from hour_one ");<br>
+	 * @return
 	 */
 	public abstract Map<String, String[]> queryData(Context mContext,
 			String where);
+	
+	/**
+	 * 
+	 * @Title:DbLocalUtil
+	 * @Description: 鏌ヨ鏁版嵁
+	 * @author Comsys-WH1510032
+	 * @return 杩斿洖绫诲瀷  
+	 * @param mContext
+	 * @param where
+	 * @return
+	 */
+	public abstract Map<String, List<String>> queryDataForList(Context mContext,
+			String where);
 
 	/**
+	 * 
+	 * @Title:DbLocalUtil
+	 * @Description: 鍒犻櫎鏁版嵁
+	 * @author Comsys-WH1510032
+	 * @return 杩斿洖绫诲瀷  
 	 * @param mContext
-	 *            上下文
 	 * @param where
-	 *            完整sql语句
-	 * @category 从本地数据库中删除数据
-	 * @eg DbLocalUtil dbUtil=new DbUtilImplement();
-	 *     dbUtil.delectData(LogoActivity.this, "delete from hour_one ");
 	 */
-	public abstract void delectData(Context mContext, String where);
+	public abstract void deleteData(Context mContext, String where);
+	
+	/**
+	 * 
+	 * @Title:DbLocalUtil
+	 * @Description: 鏍规嵁鏌愪釜瀛楁鍒犻櫎鏁版嵁
+	 * @author Comsys-WH1510032
+	 * @return 杩斿洖绫诲瀷  
+	 * @param mContext
+	 * @param tableName
+	 * @param columnName
+	 * @param value
+	 */
+	public abstract boolean deleteByField(Context mContext,String tableName,String columnName,String value);
+	
 }

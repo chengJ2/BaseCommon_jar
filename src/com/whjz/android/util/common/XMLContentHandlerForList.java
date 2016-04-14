@@ -6,7 +6,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * @author Administrator
- * @category ½âÎö·şÎñÆ÷¶Ë·µ»ØµÄxmlÎÄ¼ş
+ * @category è§£ææœåŠ¡å™¨ç«¯è¿”å›çš„xmlæ–‡ä»¶
  */
 public class XMLContentHandlerForList extends DefaultHandler {
 	private String temp = "";
@@ -46,11 +46,11 @@ public class XMLContentHandlerForList extends DefaultHandler {
 			temp = temp + new String(ch, start, length);
 		}
 //		if (tagName.equals("DOCUMENTID"))
-//		{// ÏÂÔØ×ÊÔ´
+//		{// ä¸‹è½½èµ„æº
 //			dataSet.Documentid.add(new String(ch, start, length));
 //		}
 //		if (tagName.equals("ERROR")) {
-//			dataSet.valueList.add("³ö´íÁË");
+//			dataSet.valueList.add("å‡ºé”™äº†");
 //		}
 	}
 
