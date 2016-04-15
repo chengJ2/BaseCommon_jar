@@ -14,7 +14,7 @@ public class Dbsql {
 	String baseinfo_aql = "create table "
 			+ CommonText.BASEINFO
 			+ "(_id integer primary key autoincrement,userId TEXT, realname TEXT, gender TEXT,"
-			+ "brithday TEXT, joinworktime TEXT,phone TEXT, hometown TEXT, areacity TEXT,email TEXT,"
+			+ "brithday TEXT, joinworktime TEXT,phone TEXT, hometown TEXT, city TEXT,email TEXT,"
 			+ " ismarry TEXT,nationality TEXT,license TEXT,workingabroad TEXT,politicalstatus TEXT,avator TEXT)";
 	// 工作经历数据
 	String work_experience_aql = "create table "
