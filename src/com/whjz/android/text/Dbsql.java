@@ -20,7 +20,7 @@ public class Dbsql {
 	String work_experience_aql = "create table "
 			+ CommonText.WORKEXPERIENCE
 			+ "(_id integer primary key autoincrement,userId TEXT, companyname TEXT, industryclassification TEXT,"
-			+ "jobtitle TEXT, worktimeStart TEXT,worktimeEnd TEXT, expectedsalary TEXT, workdesc TEXT,createtime TEXT)";
+			+ "jobtitle TEXT, worktimestart TEXT,worktimeend TEXT, expectedsalary TEXT, workdesc TEXT,createtime TEXT)";
 	
 	// 自我评价
 	String evaluation_aql = "create table "
@@ -36,12 +36,12 @@ public class Dbsql {
 	// 教育经历
 	String education_aql = "create table "
 			+ CommonText.EDUCATION
-			+ "(_id integer primary key autoincrement,userId TEXT, time TEXT, school TEXT,"
+			+ "(_id integer primary key autoincrement,userId TEXT, worktimestart TEXT,worktimeend TEXT, school TEXT,"
 			+ " examination TEXT,majorname TEXT,degree TEXT,createtime TEXT)";
 	// 培顺经历
 	String training_aql = "create table "
 			+ CommonText.EDUCATION_TRAIN
-			+ "(_id integer primary key autoincrement,userId TEXT, time TEXT, trainingorganization TEXT,"
+			+ "(_id integer primary key autoincrement,userId TEXT, worktimestart TEXT,worktimeend TEXT, trainingorganization TEXT,"
 			+ " trainingclass TEXT,certificate TEXT,description TEXT,createtime TEXT)";
 	
 	
