@@ -19,7 +19,7 @@ public class Dbsql {
 	// 工作经历数据
 	String work_experience_aql = "create table "
 			+ CommonText.WORKEXPERIENCE
-			+ "(_id integer primary key autoincrement,userId TEXT, companyname TEXT, industryclassification TEXT,"
+			+ "(_id integer primary key autoincrement,userId TEXT, companyname TEXT,companynature TEXT,companyscale TEXT, industryclassification TEXT,"
 			+ "jobtitle TEXT, worktimestart TEXT,worktimeend TEXT, expectedsalary TEXT, workdesc TEXT,createtime TEXT)";
 	
 	// 自我评价

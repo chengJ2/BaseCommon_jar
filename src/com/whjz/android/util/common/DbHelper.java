@@ -107,10 +107,6 @@ public class DbHelper extends SQLiteOpenHelper {
 			return result;
 		} catch (Exception e) {
 			MyLog.d(e.getMessage());
-		}finally{
-			if (db != null) {
-				db.close();
-			}
 		}
 		return -1;
 	}
