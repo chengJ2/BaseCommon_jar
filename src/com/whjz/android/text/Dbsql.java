@@ -9,59 +9,83 @@ public class Dbsql {
 	// 用户注册信息
 	String userinfo_aql = "create table "
 			+ CommonText.USERINFO
-			+ "(_id integer primary key autoincrement,username TEXT, userpassword TEXT,deviceId TEXT,patform TEXT,createtime TEXT,lastlogintime TEXT)";
+			+ "(_id integer primary key autoincrement,username TEXT, userpassword TEXT,deviceId TEXT,patform TEXT,temp TEXT,temp2 TEXT,createtime TEXT,lastlogintime TEXT)";
 	// 用户基本信息
 	String baseinfo_aql = "create table "
 			+ CommonText.BASEINFO
 			+ "(_id integer primary key autoincrement,userId TEXT, realname TEXT, gender TEXT,"
 			+ "brithday TEXT, joinworktime TEXT,phone TEXT, hometown TEXT, city TEXT,email TEXT,"
-			+ " ismarry TEXT,nationality TEXT,license TEXT,workingabroad TEXT,politicalstatus TEXT,avator TEXT)";
+			+ " ismarry TEXT,nationality TEXT,license TEXT,workingabroad TEXT,politicalstatus TEXT,avator TEXT, background TEXT,temp TEXT)";
 	// 工作经历数据
 	String work_experience_aql = "create table "
 			+ CommonText.WORKEXPERIENCE
 			+ "(_id integer primary key autoincrement,userId TEXT, companyname TEXT,companynature TEXT,companyscale TEXT, industryclassification TEXT,"
-			+ "jobtitle TEXT, worktimestart TEXT,worktimeend TEXT, expectedsalary TEXT, workdesc TEXT,createtime TEXT)";
+			+ "jobtitle TEXT, worktimestart TEXT,worktimeend TEXT, expectedsalary TEXT, workdesc TEXT,background TEXT,temp TEXT,createtime TEXT)";
 	
 	// 自我评价
 	String evaluation_aql = "create table "
 			+ CommonText.EVALUATION
-			+ "(_id integer primary key autoincrement,userId TEXT, selfevaluation TEXT, careergoal TEXT,createtime TEXT)";
+			+ "(_id integer primary key autoincrement,userId TEXT, selfevaluation TEXT, careergoal TEXT,background TEXT,temp TEXT,createtime TEXT)";
 	
 	// 求职意向数据
 	String job_intension_aql = "create table "
 			+ CommonText.JOBINTENSION
 			+ "(_id integer primary key autoincrement,userId TEXT, expworkingproperty TEXT, expdworkplace TEXT,"
-			+ " expworkindustry TEXT,expworkcareer TEXT,expmonthlysalary TEXT,workingstate TEXT,createtime TEXT)";
+			+ " expworkindustry TEXT,expworkcareer TEXT,expmonthlysalary TEXT,workingstate TEXT,background TEXT,temp TEXT,createtime TEXT)";
 	
 	// 教育经历
 	String education_aql = "create table "
 			+ CommonText.EDUCATION
-			+ "(_id integer primary key autoincrement,userId TEXT, worktimestart TEXT,worktimeend TEXT, school TEXT,"
-			+ " examination TEXT,majorname TEXT,degree TEXT,createtime TEXT)";
+			+ "(_id integer primary key autoincrement,userId TEXT, educationtimestart TEXT,educationtimeend TEXT, school TEXT,"
+			+ " examination TEXT,majorname TEXT,degree TEXT,background TEXT,temp TEXT,createtime TEXT)";
 	// 培顺经历
 	String training_aql = "create table "
 			+ CommonText.EDUCATION_TRAIN
-			+ "(_id integer primary key autoincrement,userId TEXT, worktimestart TEXT,worktimeend TEXT, trainingorganization TEXT,"
-			+ " trainingclass TEXT,certificate TEXT,description TEXT,createtime TEXT)";
+			+ "(_id integer primary key autoincrement,userId TEXT, trainingtimestart TEXT,trainingtimeend TEXT, trainingorganization TEXT,"
+			+ " trainingclass TEXT,certificate TEXT,description TEXT,background TEXT,temp TEXT,createtime TEXT)";
 	
 	
 	String otherinfo_aql = "create table "
 			+ CommonText.OTHERINFO
 			+ "(_id integer primary key autoincrement,userId TEXT, language TEXT, literacyskills TEXT,"
-			+ " listeningspeaking TEXT,createtime TEXT)";
+			+ " listeningspeaking TEXT,background TEXT,temp TEXT,createtime TEXT)";
 	
 	String otherinfo1_aql = "create table "
 			+ CommonText.OTHERINFO1
-			+ "(_id integer primary key autoincrement,userId TEXT, certificate TEXT, certificatetime TEXT,"
+			+ "(_id integer primary key autoincrement,userId TEXT, certificate TEXT, certificatetime TEXT,temp TEXT,"
 			+ " createtime TEXT)";
 	
 	String otherinfo2_aql = "create table "
 			+ CommonText.OTHERINFO2
-			+ "(_id integer primary key autoincrement,userId TEXT, title TEXT, description TEXT,"
+			+ "(_id integer primary key autoincrement,userId TEXT, title TEXT, description TEXT,temp TEXT,"
 			+ " createtime TEXT)";
 	
+	// 项目经验
+	String project_experience_aql = "create table "
+			+ CommonText.PROJECT_EXPERIENCE
+			+ "(_id integer primary key autoincrement,userId TEXT, projectname TEXT, worktimestart TEXT,worktimeend TEXT,"
+			+ " duties TEXT, prokectdesc TEXT,background TEXT,temp TEXT,createtime TEXT)";
+	
+	String professional_skill_aql = "create table "
+			+ CommonText.PROFESSIONAL_SKILL
+			+ "(_id integer primary key autoincrement,userId TEXT, skillname TEXT, usetime TEXT,skillful TEXT,"
+			+ "temp TEXT,createtime TEXT)";
+	
+	String learning_inschool_aql = "create table "
+			+ CommonText.LEARNING_INSCHOOL
+			+ "(_id integer primary key autoincrement,userId TEXT, awardedlevel TEXT, activity_duties_desc TEXT,awards TEXT,"
+			+ " award_level TEXT, getime TEXT,desc TEXT,temp TEXT,createtime TEXT)";
+	
+	String practicalexperience_inschool_aql = "create table "
+			+ CommonText.PRACTICALEXPERIENCE_INSCHOOL
+			+ "(_id integer primary key autoincrement,userId TEXT, practicalname TEXT, practicaltimestart TEXT,practicaltimeend TEXT,"
+			+ " practicaldesc TEXT, temp TEXT,createtime TEXT)";
+	
+	
 	/* 创建数据库表的语句 */
-	public String createTableSql[] = {userinfo_aql,baseinfo_aql,work_experience_aql,evaluation_aql,
-				education_aql,training_aql,job_intension_aql,otherinfo_aql,otherinfo1_aql,otherinfo2_aql};
+	public String createTableSql[] = {userinfo_aql,baseinfo_aql,
+				work_experience_aql,evaluation_aql,education_aql,training_aql,job_intension_aql,
+				otherinfo_aql,otherinfo1_aql,otherinfo2_aql,
+				project_experience_aql,professional_skill_aql,learning_inschool_aql,practicalexperience_inschool_aql};
 
 }

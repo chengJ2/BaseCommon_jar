@@ -1,5 +1,12 @@
 package com.whjz.android.text;
 
+/**
+ * 
+* @ClassName: CommonText 
+* @Description: 本地数据库表常量 
+* @date 2016/4/22 上午9:53:37 
+*
+ */
 public class CommonText {
 	
 	public static final boolean DEBUG = true;//日志输出开关,true:打印输出，false:关闭打印输出
@@ -16,7 +23,6 @@ public class CommonText {
 	public static final int DATEBASE_VERSION = 1;
 	
 	// 数据库表名称常量
-	
 	public static final String USERINFO="userinfo";// 用户注册信息
 	public static final String BASEINFO="baseinfo";// 基本信息
 	public static final String WORKEXPERIENCE="work_experience";// 工作经历
@@ -29,5 +35,12 @@ public class CommonText {
 	public static final String OTHERINFO="otherinfo";// 其他信息 （语言能力）
 	public static final String OTHERINFO1="otherinfo1";// 其他信息 （证书）
 	public static final String OTHERINFO2="otherinfo2";// 其他信息  （其他信息）
+	
+	// 人才附加内容
+	public static final String PROJECT_EXPERIENCE = "project_experience"; // 项目经验
+	public static final String PROFESSIONAL_SKILL = "professional_skill"; // 专业技能
+	public static final String LEARNING_INSCHOOL = "learning_inschool"; // 在校学习情况
+	public static final String PRACTICALEXPERIENCE_INSCHOOL = "practicalexperience_inschool"; // 在校实践经验
+	
 	
 }
