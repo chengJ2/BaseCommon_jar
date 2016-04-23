@@ -102,7 +102,7 @@ public class DbHelper extends SQLiteOpenHelper {
 			for (int i = 1; i < columnSize; i++) {
 				values.put(fieldName[i],value[i]);
 			}
-			result = db.update(mTableName, values, "_id=? and userId=?", 
+			result = db.update(mTableName, values, "id=? and userId=?", 
 					new String[]{fieldName[0], value[0]});
 			return result;
 		} catch (Exception e) {
