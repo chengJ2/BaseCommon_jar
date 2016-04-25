@@ -41,7 +41,7 @@ public class XmlPackage {
 				MyLog.d("输入的两个参数的个数不一致");
 			}
 		}
-		MyLog.d("Request Xml====未加密======"+ XmlRequest.toString());//请求语句
+		MyLog.d("Request Xml====未加密====>>"+ XmlRequest.toString());//请求语句
 		if(CommonText.UNSECRET){
 			return EncryptUncrypt.encryptAndUncrypt(XmlRequest.toString(), CommonText.secret);
 		}else{
@@ -76,7 +76,7 @@ public class XmlPackage {
 		}else if(paramvalue.size() != params.size()){
 			MyLog.d("输入的两个参数的个数不一致");
 		}
-		MyLog.d("Request Xml=========="+ XmlRequest.toString());//请求语句
+		MyLog.d("Request Xml========>>"+ XmlRequest.toString());//请求语句
 		return XmlRequest.toString();
         
 	}
