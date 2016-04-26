@@ -74,6 +74,7 @@ public class RequestForData {
 		envelope.dotNet = true;
 		// 等价于envelope.bodyOut = rpc;
 		envelope.setOutputSoapObject(rpc);
+		
 		HttpTransportSE transport = new MyAndroidHttpTransport(endPoint,10*1000);
 		try {
 			// 调用WebService
@@ -82,11 +83,11 @@ public class RequestForData {
 			result = "<?xml version=\"1.0\" encoding=\"utf-8\"?><root><child><key>msg</key><value>timeout</value></child></root>";
 			e.printStackTrace();
 		}
+		
 		// 获取返回的数据
 		SoapObject object;
 		try {
 			object = (SoapObject) envelope.bodyIn;
-
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			object = null;
