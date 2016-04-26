@@ -89,7 +89,6 @@ public class RequestForData {
 		try {
 			object = (SoapObject) envelope.bodyIn;
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			object = null;
 			e1.printStackTrace();
 		}
@@ -97,12 +96,12 @@ public class RequestForData {
 		if (object != null) {
 			try {
 				result = object.getProperty(0).toString();
+				
 				if(ISSECRET){
 					result=EncryptUncrypt.encryptAndcrypt(result, CommonText.secret);
 				}
 				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				result = null;
 				e.printStackTrace();
 			}

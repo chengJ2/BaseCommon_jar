@@ -21,7 +21,7 @@ public class CommonUtil implements BaseCommonUtil {
 				params, paramvalue);
 //		System.out.println("Request Xml==========" + sqlxml);
 		dataSetlist = RequestForData.getResultData(nameSpace, getuploadFile,
-				CommonText.endPoint+"/MyService.asmx?wsdl", sqlxml, data,true);
+				CommonText.endPoint+"/MyService.asmx?wsdl", sqlxml, data,CommonText.UNSECRET);
 		return dataSetlist;
 	}
 
@@ -35,7 +35,7 @@ public class CommonUtil implements BaseCommonUtil {
 				params, paramvalue);
 //		MyLog.d("Request Xml====加密======>>" + sqlxml);
 		dataSetlist = RequestForData.getResultData(nameSpace, methodName,
-				CommonText.endPoint+"/MyService.asmx?wsdl", sqlxml, null,false);
+				CommonText.endPoint+"/MyService.asmx?wsdl", sqlxml, null,CommonText.UNSECRET);
 		return dataSetlist;
 	}
 
