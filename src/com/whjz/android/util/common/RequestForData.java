@@ -75,7 +75,7 @@ public class RequestForData {
 		// 等价于envelope.bodyOut = rpc;
 		envelope.setOutputSoapObject(rpc);
 		
-		HttpTransportSE transport = new MyAndroidHttpTransport(endPoint,10*1000);
+		HttpTransportSE transport = new MyAndroidHttpTransport(endPoint,5*1000);
 		try {
 			// 调用WebService
 			transport.call(soapAction, envelope);
@@ -96,11 +96,9 @@ public class RequestForData {
 		if (object != null) {
 			try {
 				result = object.getProperty(0).toString();
-				
 				if(ISSECRET){
 					result=EncryptUncrypt.encryptAndcrypt(result, CommonText.secret);
 				}
-				
 			} catch (Exception e) {
 				result = null;
 				e.printStackTrace();
