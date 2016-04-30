@@ -93,7 +93,7 @@ public class DbHelper extends SQLiteOpenHelper {
 	 * @category 普通插入
 	 */
 	public int updateData(Context mContext, String mTableName,
-			String[] fieldName, String[] value){
+			String[] fieldName, String[] value,int whereArgs){
 		SQLiteDatabase db = getWritableDatabase();
 		int result = -1;
 		try {
@@ -102,8 +102,13 @@ public class DbHelper extends SQLiteOpenHelper {
 			for (int i = 1; i < columnSize; i++) {
 				values.put(fieldName[i],value[i]);
 			}
-			result = db.update(mTableName, values, "id=? and userId=?", 
-					new String[]{fieldName[0], value[0]});
+			if(whereArgs == 1){
+				result = db.update(mTableName, values, fieldName[0], 
+						new String[]{value[0]});
+			}else{
+				result = db.update(mTableName, values, "id=? and userId=?", 
+						new String[]{fieldName[0], value[0]});
+			}
 			return result;
 		} catch (Exception e) {
 			MyLog.d(e.getMessage());

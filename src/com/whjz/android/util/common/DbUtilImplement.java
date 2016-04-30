@@ -30,9 +30,9 @@ public class DbUtilImplement implements DbLocalUtil {
 	
 	@Override
 	public int updateData(Context mContext, String mTableName,
-			String[] fieldName, String[] value) {
+			String[] fieldName, String[] value,int whereArgs) {
 		DbHelper db = DbHelper.getInstance(mContext);
-		return db.updateData(mContext, mTableName, fieldName, value);
+		return db.updateData(mContext, mTableName, fieldName, value,whereArgs);
 	}
 	
 	@Override

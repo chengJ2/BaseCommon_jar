@@ -30,28 +30,11 @@ public class XMLContentHandlerForList extends DefaultHandler {
 	public void characters(char[] ch, int start, int length)
 			throws SAXException {
 		flag = false;
-//		if (tagName.equals("CONTENTTYPENAME")) {
-//			dataSet.type = new String(ch, start, length);
-//		}
-//		if (tagName.equals("CONTENTID")) {
-//			temp = temp + new String(ch, start, length);
-//		}
-//		if (tagName.equals("NODETYPENAME")) {
-//			temp = temp + new String(ch, start, length);
-//			nodeCount++;
-//		}
 		if (tagName.equals("key")) {
 			temp = temp + new String(ch, start, length);
 		}else if (tagName.equals("value")) {
 			temp = temp + new String(ch, start, length);
 		}
-//		if (tagName.equals("DOCUMENTID"))
-//		{// 下载资源
-//			dataSet.Documentid.add(new String(ch, start, length));
-//		}
-//		if (tagName.equals("ERROR")) {
-//			dataSet.valueList.add("出错了");
-//		}
 	}
 
 	@Override

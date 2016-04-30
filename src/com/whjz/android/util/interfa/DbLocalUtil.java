@@ -42,7 +42,7 @@ public interface DbLocalUtil {
 	 * @return boolean
 	 */
 	public abstract int updateData(Context mContext, String mTableName,
-			String[] columnName, String[] value);
+			String[] columnName, String[] value,int whereArgs);
 	
 	/**
 	 * 
