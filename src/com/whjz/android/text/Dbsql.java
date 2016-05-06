@@ -81,11 +81,17 @@ public class Dbsql {
 			+ "(id integer primary key autoincrement,userId TEXT, practicalname TEXT, practicaltimestart TEXT,practicaltimeend TEXT,"
 			+ " practicaldesc TEXT, temp TEXT,createtime TEXT)";
 	
+	String mycollection_sql = "create table "
+			+ CommonText.MYCOLLECTION
+			+ "(id integer primary key autoincrement,userId TEXT,title TEXT,content TEXT,"
+			+ "sharename TEXT,sharenamecity TEXT,sharedatime TEXT,type TEXT)";
+	
 	
 	/* 创建数据库表的语句 */
 	public String createTableSql[] = {userinfo_aql,baseinfo_aql,
 				work_experience_aql,evaluation_aql,education_aql,training_aql,job_intension_aql,
 				otherinfo_aql,otherinfo1_aql,otherinfo2_aql,
-				project_experience_aql,professional_skill_aql,learning_inschool_aql,practicalexperience_inschool_aql};
+				project_experience_aql,professional_skill_aql,learning_inschool_aql,practicalexperience_inschool_aql,
+				mycollection_sql};
 
 }

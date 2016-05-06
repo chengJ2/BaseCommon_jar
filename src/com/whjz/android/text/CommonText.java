@@ -42,5 +42,6 @@ public class CommonText {
 	public static final String LEARNING_INSCHOOL = "learning_inschool"; // 在校学习情况
 	public static final String PRACTICALEXPERIENCE_INSCHOOL = "practicalexperience_inschool"; // 在校实践经验
 	
-	
+	// 收藏
+	public static final String MYCOLLECTION = "mycollection"; // 我的收藏
 }
