@@ -9,7 +9,7 @@ public class Dbsql {
 	// 用户注册信息
 	String userinfo_aql = "create table "
 			+ CommonText.USERINFO
-			+ "(id integer primary key autoincrement,username TEXT, userpassword TEXT,deviceId TEXT,patform TEXT,temp TEXT,temp2 TEXT,createtime TEXT,lastlogintime TEXT)";
+			+ "(id integer primary key autoincrement,uid TEXT,username TEXT, userpassword TEXT,deviceId TEXT,patform TEXT,temp TEXT,temp2 TEXT,createtime TEXT,lastlogintime TEXT)";
 	// 用户基本信息
 	String baseinfo_aql = "create table "
 			+ CommonText.BASEINFO

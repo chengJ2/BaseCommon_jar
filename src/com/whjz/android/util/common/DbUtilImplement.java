@@ -116,32 +116,45 @@ public class DbUtilImplement implements DbLocalUtil {
 
 	@Override
 	public Map<String, String[]> queryData(Context mContext, String where) {
-		DbHelper db = DbHelper.getInstance(mContext);
-		Map<String, String[]> map = new HashMap<String, String[]>();
-		Cursor cur = db.query(where);
-		if (cur.getCount() > 0) {
-			if (cur.moveToFirst()) {
-				String names[] = cur.getColumnNames();
-				int namesize = names.length;
-				int rows = cur.getCount();
-				String list[][] = new String[namesize][rows];
-				int k = 0;
-				do {
-					for (int i = 0; i < namesize; i++) {
-						list[i][k] = (cur.getString(i) == null) ? "" : cur
-								.getString(i).toString();
-					}
-					k++;
-				} while (cur.moveToNext());
+		DbHelper db = null;
+		Map<String, String[]> map = null;
+		Cursor cur = null;
+		try {
+			db = DbHelper.getInstance(mContext);
+			map = new HashMap<String, String[]>();
+			cur = db.query(where);
+			if (cur.getCount() > 0) {
+				if (cur.moveToFirst()) {
+					String names[] = cur.getColumnNames();
+					int namesize = names.length;
+					int rows = cur.getCount();
+					String list[][] = new String[namesize][rows];
+					int k = 0;
+					do {
+						for (int i = 0; i < namesize; i++) {
+							list[i][k] = (cur.getString(i) == null) ? "" : cur
+									.getString(i).toString();
+						}
+						k++;
+					} while (cur.moveToNext());
 
-				for (int j = 0; j < namesize; j++) {
-					map.put(names[j], list[j]);
+					for (int j = 0; j < namesize; j++) {
+						map.put(names[j], list[j]);
+					}
 				}
+			} else {
+				map = null;
 			}
-		} else {
-			map = null;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if (cur != null) {
+				cur.close();
+			}
+			if (db != null) {
+				db.close();
+			}
 		}
-		cur.close();
 		return map;
 	}
 
