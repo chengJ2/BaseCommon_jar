@@ -1,5 +1,7 @@
 package com.whjz.android.util.common;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
 
@@ -108,13 +110,15 @@ public class RequestForData {
 		MyLog.d("==解密后Response==>>" + result);
 		if (result != null) {
 			try {
-				SAXParserFactory saxParserFactory = SAXParserFactory
-						.newInstance();
-				XMLReader reader = saxParserFactory.newSAXParser()
-						.getXMLReader();
+				SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+				XMLReader reader = saxParserFactory.newSAXParser().getXMLReader();
 				XMLContentHandlerForList myExampleHandler = new XMLContentHandlerForList();
 				reader.setContentHandler(myExampleHandler);
-				reader.parse(new InputSource(new StringReader(result)));
+				InputSource inputSource = new InputSource();
+				inputSource.setEncoding("utf-8");
+				inputSource.setCharacterStream(new StringReader(result));
+				reader.parse(inputSource);
+//				reader.parse(new InputSource(new StringReader(result)));
 				parsedExampleDataSet = myExampleHandler.dataSet;
 			} catch (SAXException e) {
 				parsedExampleDataSet = null;

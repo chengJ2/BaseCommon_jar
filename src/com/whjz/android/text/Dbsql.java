@@ -9,7 +9,7 @@ public class Dbsql {
 	// 用户注册信息
 	String userinfo_aql = "create table "
 			+ CommonText.USERINFO
-			+ "(id integer primary key autoincrement,uid TEXT,username TEXT, userpassword TEXT,deviceId TEXT,patform TEXT,temp TEXT,temp2 TEXT,createtime TEXT,updatetime TEXT,lastlogintime TEXT)";
+			+ "(id integer primary key autoincrement,uid TEXT,username TEXT, userpassword TEXT,deviceId TEXT,patform TEXT,temp TEXT,temp2 TEXT,createtime TEXT,updatetime TEXT,lastlogintime TEXT,userstatus TEXT DEFAULT 0)";
 	// 用户基本信息
 	String baseinfo_aql = "create table "
 			+ CommonText.BASEINFO
@@ -19,8 +19,8 @@ public class Dbsql {
 	// 工作经历数据
 	String work_experience_aql = "create table "
 			+ CommonText.WORKEXPERIENCE
-			+ "(id integer primary key autoincrement,userId TEXT, companyname TEXT,companynature TEXT,companyscale TEXT, industryclassification TEXT,"
-			+ "jobtitle TEXT, worktimestart TEXT,worktimeend TEXT, expectedsalary TEXT, workdesc TEXT,bgcolor TEXT,temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,weToken TEXT,userId TEXT, companyname TEXT,companynature TEXT,companyscale TEXT, industryclassification TEXT,"
+			+ "jobtitle TEXT, worktimestart TEXT,worktimeend TEXT, expectedsalary TEXT, workdesc TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	// 自我评价
 	String evaluation_aql = "create table "
