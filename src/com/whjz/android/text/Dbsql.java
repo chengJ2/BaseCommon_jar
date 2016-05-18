@@ -19,67 +19,67 @@ public class Dbsql {
 	// 工作经历数据
 	String work_experience_aql = "create table "
 			+ CommonText.WORKEXPERIENCE
-			+ "(id integer primary key autoincrement,weToken TEXT,userId TEXT, companyname TEXT,companynature TEXT,companyscale TEXT, industryclassification TEXT,"
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, companyname TEXT,companynature TEXT,companyscale TEXT, industryclassification TEXT,"
 			+ "jobtitle TEXT, worktimestart TEXT,worktimeend TEXT, expectedsalary TEXT, workdesc TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	// 自我评价
 	String evaluation_aql = "create table "
 			+ CommonText.EVALUATION
-			+ "(id integer primary key autoincrement,userId TEXT, selfevaluation TEXT, careergoal TEXT,bgcolor TEXT,temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, selfevaluation TEXT, careergoal TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	// 求职意向数据
 	String job_intension_aql = "create table "
 			+ CommonText.JOBINTENSION
-			+ "(id integer primary key autoincrement,userId TEXT, expworkingproperty TEXT, expdworkplace TEXT,"
-			+ " expworkindustry TEXT,expworkcareer TEXT,expmonthlysalary TEXT,workingstate TEXT,bgcolor TEXT,temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, expworkingproperty TEXT, expdworkplace TEXT,"
+			+ " expworkindustry TEXT,expworkcareer TEXT,expmonthlysalary TEXT,workingstate TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	// 教育经历
 	String education_aql = "create table "
 			+ CommonText.EDUCATION
-			+ "(id integer primary key autoincrement,userId TEXT, educationtimestart TEXT,educationtimeend TEXT, school TEXT,"
-			+ " examination TEXT,majorname TEXT,degree TEXT,bgcolor TEXT,temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, educationtimestart TEXT,educationtimeend TEXT, school TEXT,"
+			+ " examination TEXT,majorname TEXT,degree TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	// 培顺经历
 	String training_aql = "create table "
 			+ CommonText.EDUCATION_TRAIN
-			+ "(id integer primary key autoincrement,userId TEXT, trainingtimestart TEXT,trainingtimeend TEXT, trainingorganization TEXT,"
-			+ " trainingclass TEXT,certificate TEXT,description TEXT,bgcolor TEXT,temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, trainingtimestart TEXT,trainingtimeend TEXT, trainingorganization TEXT,"
+			+ " trainingclass TEXT,certificate TEXT,description TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	
 	String otherinfo_aql = "create table "
 			+ CommonText.OTHERINFO
-			+ "(id integer primary key autoincrement,userId TEXT, language TEXT, literacyskills TEXT,"
-			+ " listeningspeaking TEXT,bgcolor TEXT,temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, language TEXT, literacyskills TEXT,"
+			+ " listeningspeaking TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	String otherinfo1_aql = "create table "
 			+ CommonText.OTHERINFO1
-			+ "(id integer primary key autoincrement,userId TEXT, certificate TEXT, certificatetime TEXT,temp TEXT,"
-			+ " createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, certificate TEXT, certificatetime TEXT,temp TEXT,"
+			+ " createtime TEXT,updatetime TEXT)";
 	
 	String otherinfo2_aql = "create table "
 			+ CommonText.OTHERINFO2
-			+ "(id integer primary key autoincrement,userId TEXT, title TEXT, description TEXT,temp TEXT,"
-			+ " createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, title TEXT, description TEXT,temp TEXT,"
+			+ " createtime TEXT,updatetime TEXT)";
 	
 	// 项目经验
 	String project_experience_aql = "create table "
 			+ CommonText.PROJECT_EXPERIENCE
-			+ "(id integer primary key autoincrement,userId TEXT, projectname TEXT, worktimestart TEXT,worktimeend TEXT,"
-			+ " duties TEXT, prokectdesc TEXT,bgcolor TEXT,temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, projectname TEXT, worktimestart TEXT,worktimeend TEXT,"
+			+ " duties TEXT, prokectdesc TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	String professional_skill_aql = "create table "
 			+ CommonText.PROFESSIONAL_SKILL
-			+ "(id integer primary key autoincrement,userId TEXT, skillname TEXT, usetime TEXT,skillful TEXT,"
-			+ "temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, skillname TEXT, usetime TEXT,skillful TEXT,"
+			+ "temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	String learning_inschool_aql = "create table "
 			+ CommonText.LEARNING_INSCHOOL
-			+ "(id integer primary key autoincrement,userId TEXT, awardedlevel TEXT, activity_duties_desc TEXT,awards TEXT,"
-			+ " award_level TEXT, getime TEXT,desc TEXT,temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, awardedlevel TEXT, activity_duties_desc TEXT,awards TEXT,"
+			+ " award_level TEXT, getime TEXT,desc TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	String practicalexperience_inschool_aql = "create table "
 			+ CommonText.PRACTICALEXPERIENCE_INSCHOOL
-			+ "(id integer primary key autoincrement,userId TEXT, practicalname TEXT, practicaltimestart TEXT,practicaltimeend TEXT,"
-			+ " practicaldesc TEXT, temp TEXT,createtime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, practicalname TEXT, practicaltimestart TEXT,practicaltimeend TEXT,"
+			+ " practicaldesc TEXT, temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	String mycollection_sql = "create table "
 			+ CommonText.MYCOLLECTION

@@ -88,9 +88,14 @@ public class DbHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * @param values
-	 * @param table
-	 * @category 普通插入
+	 * 更新数据
+	 * @param mContext 上下文
+	 * @param mTableName 表名
+	 * @param fieldName 字段名
+	 * @param value 字段值
+	 * @param whereArgs 更新条件
+	 *  1:userId 2.id & userId 3.tokenId & userId
+	 * 
 	 */
 	public int updateData(Context mContext, String mTableName,
 			String[] fieldName, String[] value,int whereArgs){
@@ -105,8 +110,11 @@ public class DbHelper extends SQLiteOpenHelper {
 			if(whereArgs == 1){
 				result = db.update(mTableName, values, fieldName[0], 
 						new String[]{value[0]});
-			}else{
+			}else if(whereArgs == 2){
 				result = db.update(mTableName, values, "id=? and userId=?", 
+						new String[]{fieldName[0], value[0]});
+			}else if(whereArgs == 3){
+				result = db.update(mTableName, values, "tokenId=? and userId=?", 
 						new String[]{fieldName[0], value[0]});
 			}
 			return result;
