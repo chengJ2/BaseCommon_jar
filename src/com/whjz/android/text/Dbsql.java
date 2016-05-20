@@ -83,8 +83,8 @@ public class Dbsql {
 	
 	String mycollection_sql = "create table "
 			+ CommonText.MYCOLLECTION
-			+ "(id integer primary key autoincrement,userId TEXT,title TEXT,content TEXT,"
-			+ "sharename TEXT,sharenamecity TEXT,sharedatime TEXT,type TEXT)";
+			+ "(id integer primary key autoincrement,userId TEXT,topicId TEXT,title TEXT,content TEXT,from_url TEXT,topic_from TEXT,"
+			+ "shareUserId TEXT,sharename TEXT,sharenamecity TEXT,createtime TEXT,type TEXT)";
 	
 	
 	/* 创建数据库表的语句 */
