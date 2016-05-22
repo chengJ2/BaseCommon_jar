@@ -14,8 +14,8 @@ public class CommonText {
 	public static final boolean UNSECRET= true;//是否加密，false不加密；true加密
 	public static final char secret='z';//加密密钥
 	
-//	public static String endPoint=  "http://192.168.201.2:8020"; 
-	public static String endPoint=  "http://10.51.4.138:8020";
+	public static String endPoint=  "http://192.168.201.2:8020"; 
+//	public static String endPoint=  "http://10.51.4.138:8020";
 	
 	// 数据库名称常量
 	public static final String DATABASE_NAME = "myResume.db";

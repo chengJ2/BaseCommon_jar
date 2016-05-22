@@ -15,7 +15,7 @@ public class Dbsql {
 			+ CommonText.BASEINFO
 			+ "(id integer primary key autoincrement,userId TEXT, realname TEXT, gender TEXT,"
 			+ "brithday TEXT, joinworktime TEXT,phone TEXT, hometown TEXT, city TEXT,email TEXT,"
-			+ " ismarry TEXT,nationality TEXT,license TEXT,workingabroad TEXT,politicalstatus TEXT,avator TEXT, bgcolor TEXT,temp TEXT)";
+			+ " ismarry TEXT,nationality TEXT,license TEXT,workingabroad TEXT,politicalstatus TEXT,avator TEXT, bgcolor TEXT,createtime TEXT,updatetime TEXT,temp TEXT)";
 	// 工作经历数据
 	String work_experience_aql = "create table "
 			+ CommonText.WORKEXPERIENCE
