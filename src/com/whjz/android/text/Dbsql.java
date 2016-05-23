@@ -25,7 +25,7 @@ public class Dbsql {
 	// 自我评价
 	String evaluation_aql = "create table "
 			+ CommonText.EVALUATION
-			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, selfevaluation TEXT, careergoal TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
+			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, selfevaluation TEXT, careergoal TEXT,character TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
 	// 求职意向数据
 	String job_intension_aql = "create table "
@@ -83,7 +83,7 @@ public class Dbsql {
 	
 	String mycollection_sql = "create table "
 			+ CommonText.MYCOLLECTION
-			+ "(id integer primary key autoincrement,userId TEXT,topicId TEXT,title TEXT,content TEXT,from_url TEXT,topic_from TEXT,"
+			+ "(id integer primary key autoincrement,cId TEXT,userId TEXT,topicId TEXT,title TEXT,content TEXT,from_url TEXT,topic_from TEXT,"
 			+ "shareUserId TEXT,sharename TEXT,sharenamecity TEXT,createtime TEXT,type TEXT)";
 	
 	
