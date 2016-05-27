@@ -27,6 +27,7 @@ public class CommonText {
 	public static final String BASEINFO="baseinfo";// 基本信息
 	public static final String WORKEXPERIENCE="work_experience";// 工作经历
 	public static final String EVALUATION="evaluation";// 自我评价
+	public static final String CHARACTER="character";// 自我评价
 	public static final String JOBINTENSION="job_intension";// 求职意向
 	
 	public static final String EDUCATION="education";// 教育背景

@@ -27,6 +27,12 @@ public class Dbsql {
 			+ CommonText.EVALUATION
 			+ "(id integer primary key autoincrement,tokenId TEXT,userId TEXT, selfevaluation TEXT, careergoal TEXT,character TEXT,bgcolor TEXT,temp TEXT,createtime TEXT,updatetime TEXT)";
 	
+	// 个人性格
+	String character_aql = "create table "
+			+ CommonText.CHARACTER
+			+ "(id integer primary key autoincrement,userId TEXT,character TEXT,temp TEXT)";
+	
+	
 	// 求职意向数据
 	String job_intension_aql = "create table "
 			+ CommonText.JOBINTENSION
@@ -89,7 +95,7 @@ public class Dbsql {
 	
 	/* 创建数据库表的语句 */
 	public String createTableSql[] = {userinfo_aql,baseinfo_aql,
-				work_experience_aql,evaluation_aql,education_aql,training_aql,job_intension_aql,
+				work_experience_aql,evaluation_aql,character_aql,education_aql,training_aql,job_intension_aql,
 				otherinfo_aql,otherinfo1_aql,otherinfo2_aql,
 				project_experience_aql,professional_skill_aql,learning_inschool_aql,practicalexperience_inschool_aql,
 				mycollection_sql};
