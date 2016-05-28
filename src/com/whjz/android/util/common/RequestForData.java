@@ -99,7 +99,7 @@ public class RequestForData {
 			try {
 				result = object.getProperty(0).toString();
 				if(ISSECRET){
-					result=EncryptUncrypt.encryptAndcrypt(result, CommonText.secret);
+					result=EncryptUncrypt.encryptAndcrypt(result, CommonText.SECRET);
 				}
 			} catch (Exception e) {
 				result = null;

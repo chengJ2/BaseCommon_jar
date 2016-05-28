@@ -12,10 +12,10 @@ public class CommonText {
 	public static final boolean DEBUG = true;//日志输出开关,true:打印输出，false:关闭打印输出
 	public static final String LOGTAG = "CJLog";
 	public static final boolean UNSECRET= true;//是否加密，false不加密；true加密
-	public static final char secret='z';//加密密钥
+	public static final char SECRET='z';//加密密钥
 	
-//	public static String endPoint=  "http://192.168.201.2:8020"; 
-	public static String endPoint=  "http://10.51.4.138:8020";
+	public static String ENDPOINT=  "http://192.168.201.2:8020"; 
+//	public static String ENDPOINT=  "http://10.51.4.138:8020";
 	
 	// 数据库名称常量
 	public static final String DATABASE_NAME = "myResume.db";
@@ -42,6 +42,9 @@ public class CommonText {
 	public static final String PROFESSIONAL_SKILL = "professional_skill"; // 专业技能
 	public static final String LEARNING_INSCHOOL = "learning_inschool"; // 在校学习情况
 	public static final String PRACTICALEXPERIENCE_INSCHOOL = "practicalexperience_inschool"; // 在校实践经验
+	
+	// home cover bg
+	public static final String COVER_FILE = "cover_file"; // cover文件下载
 	
 	// 收藏
 	public static final String MYCOLLECTION = "mycollection"; // 我的收藏

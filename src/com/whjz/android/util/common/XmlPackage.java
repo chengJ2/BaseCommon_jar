@@ -43,7 +43,7 @@ public class XmlPackage {
 		}
 		MyLog.d("Request Xml====未加密====>>"+ XmlRequest.toString());//请求语句
 		if(CommonText.UNSECRET){
-			return EncryptUncrypt.encryptAndUncrypt(XmlRequest.toString(), CommonText.secret);
+			return EncryptUncrypt.encryptAndUncrypt(XmlRequest.toString(), CommonText.SECRET);
 		}else{
 			return XmlRequest.toString();
 		}

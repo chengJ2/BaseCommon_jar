@@ -93,11 +93,16 @@ public class Dbsql {
 			+ "shareUserId TEXT,sharename TEXT,sharenamecity TEXT,createtime TEXT,type TEXT)";
 	
 	
+	String coverfile_sql = "create table "
+			+ CommonText.COVER_FILE
+			+ "(id integer primary key autoincrement,filename TEXT, fileurl TEXT,length text, isfinish TEXT DEFAULT 0,temp TEXT)";
+	
 	/* 创建数据库表的语句 */
 	public String createTableSql[] = {userinfo_aql,baseinfo_aql,
 				work_experience_aql,evaluation_aql,character_aql,education_aql,training_aql,job_intension_aql,
 				otherinfo_aql,otherinfo1_aql,otherinfo2_aql,
 				project_experience_aql,professional_skill_aql,learning_inschool_aql,practicalexperience_inschool_aql,
-				mycollection_sql};
+				mycollection_sql,
+				coverfile_sql};
 
 }
