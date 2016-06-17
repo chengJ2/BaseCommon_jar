@@ -14,11 +14,11 @@ public class CommonText {
 	public static final boolean UNSECRET= true;//是否加密，false不加密；true加密
 	public static final char SECRET='z';//加密密钥
 	
-	public static String ENDPOINT=  "http://192.168.201.2:8020"; 
-//	public static String ENDPOINT=  "http://10.51.4.138:8020";
+//	public static String ENDPOINT=  "http://192.168.201.2:8020"; 
+	public static String ENDPOINT=  "http://10.51.4.138:8020";
 	
 	// 数据库名称常量
-	public static final String DATABASE_NAME = "myResume.db";
+	public static final String DATABASE_NAME = "IResume.db";
 	// 数据库版本常量
 	public static final int DATEBASE_VERSION = 1;
 	
@@ -48,4 +48,6 @@ public class CommonText {
 	
 	// 收藏
 	public static final String MYCOLLECTION = "mycollection"; // 我的收藏
+	
+	public static final String MYWORDS = "mywords"; // 我的留言
 }

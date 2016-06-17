@@ -9,12 +9,12 @@ public class Dbsql {
 	// 用户注册信息
 	String userinfo_aql = "create table "
 			+ CommonText.USERINFO
-			+ "(id integer primary key autoincrement,uid TEXT,username TEXT, userpassword TEXT,deviceId TEXT,patform TEXT,temp TEXT,temp2 TEXT,createtime TEXT,updatetime TEXT,lastlogintime TEXT,userstatus TEXT DEFAULT 0)";
+			+ "(id integer primary key autoincrement,uid TEXT,username TEXT,userpassword TEXT,deviceId TEXT,patform TEXT,temp TEXT,temp2 TEXT,createtime TEXT,updatetime TEXT,lastlogintime TEXT,userstatus TEXT DEFAULT 0)";
 	// 用户基本信息
 	String baseinfo_aql = "create table "
 			+ CommonText.BASEINFO
-			+ "(id integer primary key autoincrement,userId TEXT, realname TEXT, gender TEXT,"
-			+ "brithday TEXT, joinworktime TEXT,phone TEXT, hometown TEXT, city TEXT,email TEXT,"
+			+ "(id integer primary key autoincrement,userId TEXT,nickname TEXT, realname TEXT, gender TEXT,"
+			+ "phone TEXT,brithday TEXT, joinworktime TEXT, hometown TEXT, city TEXT,email TEXT,"
 			+ " ismarry TEXT,nationality TEXT,license TEXT,workingabroad TEXT,politicalstatus TEXT,avator TEXT, bgcolor TEXT,createtime TEXT,updatetime TEXT,temp TEXT)";
 	// 工作经历数据
 	String work_experience_aql = "create table "
@@ -90,19 +90,23 @@ public class Dbsql {
 	String mycollection_sql = "create table "
 			+ CommonText.MYCOLLECTION
 			+ "(id integer primary key autoincrement,cId TEXT,userId TEXT,topicId TEXT,title TEXT,content TEXT,from_url TEXT,topic_from TEXT,"
-			+ "shareUserId TEXT,sharename TEXT,sharenamecity TEXT,createtime TEXT,type TEXT)";
+			+ "shareUserId TEXT,sharename TEXT,sharenamecity TEXT,createtime TEXT,type TEXT,temp TEXT)";
 	
 	
 	String coverfile_sql = "create table "
 			+ CommonText.COVER_FILE
 			+ "(id integer primary key autoincrement,filename TEXT, fileurl TEXT,length text, isfinish TEXT DEFAULT 0,temp TEXT)";
 	
+	String mywords_sql = "create table "
+			+ CommonText.MYWORDS
+			+ "(id integer primary key autoincrement,word TEXT,type TEXT,createtime TEXT,temp TEXT)";
+	
 	/* 创建数据库表的语句 */
 	public String createTableSql[] = {userinfo_aql,baseinfo_aql,
 				work_experience_aql,evaluation_aql,character_aql,education_aql,training_aql,job_intension_aql,
 				otherinfo_aql,otherinfo1_aql,otherinfo2_aql,
 				project_experience_aql,professional_skill_aql,learning_inschool_aql,practicalexperience_inschool_aql,
-				mycollection_sql,
+				mycollection_sql,mywords_sql,
 				coverfile_sql};
 
 }
