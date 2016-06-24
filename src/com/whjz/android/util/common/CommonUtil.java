@@ -22,12 +22,10 @@ public class CommonUtil implements BaseCommonUtil {
 	public DataSetList datasetlistUpdata(String username, String pwd,
 			String functionname, int style, List<String> params,
 			List<String> paramvalue, byte[] data) {
-
 		DataSetList dataSetlist = new DataSetList();
 		String sqlxml;
 		sqlxml = XmlPackage.getXmlFileRequest(username, pwd, functionname, style,
 				params, paramvalue);
-//		System.out.println("Request Xml==========" + sqlxml);
 		dataSetlist = RequestForData.getResultData(nameSpace, getuploadFile,
 				CommonText.ENDPOINT+"/MyService.asmx?wsdl", sqlxml, data,!CommonText.UNSECRET);
 		return dataSetlist;
@@ -39,12 +37,10 @@ public class CommonUtil implements BaseCommonUtil {
 	public DataSetList selects(String username, String pwd,
 			String functionname, int style, List<String> params,
 			List<String> paramvalue) {
-
 		DataSetList dataSetlist = new DataSetList();
 		String sqlxml;
 		sqlxml = XmlPackage.getXmlRequest(username, pwd, functionname, style,
 				params, paramvalue);
-//		MyLog.d("Request Xml====加密======>>" + sqlxml);
 		dataSetlist = RequestForData.getResultData(nameSpace, methodName,
 				CommonText.ENDPOINT+"/MyService.asmx?wsdl", sqlxml, null,CommonText.UNSECRET);
 		return dataSetlist;

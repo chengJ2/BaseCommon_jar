@@ -41,13 +41,12 @@ public class XmlPackage {
 				MyLog.d("输入的两个参数的个数不一致");
 			}
 		}
-		MyLog.d("Request Xml====未加密====>>"+ XmlRequest.toString());//请求语句
+		MyLog.d("==Request==>>"+ XmlRequest.toString());//请求语句
 		if(CommonText.UNSECRET){
 			return EncryptUncrypt.encryptAndUncrypt(XmlRequest.toString(), CommonText.SECRET);
 		}else{
 			return XmlRequest.toString();
 		}
-        
 	}
 	
 	public static String getXmlFileRequest(String username, String pwd,

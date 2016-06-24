@@ -3,7 +3,6 @@ package com.whjz.android.util.common;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -14,7 +13,6 @@ import com.whjz.android.text.Dbsql;
  * 
  * @ClassName: DatabaseHelper
  * @Description: 本地数据库帮助类
- * @author Comsys-WH1510032
  * @date 2016/1/5 下午1:25:55
  * 
  */
@@ -42,7 +40,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		MyLog.d("=====创建表=======");
+		MyLog.d("=====create tables=======");
 		Dbsql sqls = new Dbsql();
 		int size = sqls.createTableSql.length;
 		for (int i = 0; i < size; i++) {
@@ -52,7 +50,7 @@ public class DbHelper extends SQLiteOpenHelper {
 	
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		MyLog.d("=====更新表=======");
+		MyLog.d("=====update tables=======");
 	}
 	
 	/**
@@ -73,11 +71,11 @@ public class DbHelper extends SQLiteOpenHelper {
 	}
 
 	/**
+	 * 普通插入
 	 * @param values
 	 * @param table
-	 * @category 普通插入
 	 */
-	public boolean insertData(ContentValues values, String table) {
+	public boolean insertData(String table,ContentValues values) {
 		SQLiteDatabase db = getWritableDatabase();
 		long result = db.insert(table, null, values);
 		if (result == -1) {
@@ -94,7 +92,9 @@ public class DbHelper extends SQLiteOpenHelper {
 	 * @param fieldName 字段名
 	 * @param value 字段值
 	 * @param whereArgs 更新条件
-	 *  1:userId 2.id & userId 3.tokenId & userId
+	 *  	1:userId 
+	 *  	2.id & userId 
+	 *  	3.tokenId & userId
 	 * 
 	 */
 	public int updateData(Context mContext, String mTableName,
@@ -119,7 +119,7 @@ public class DbHelper extends SQLiteOpenHelper {
 			}
 			return result;
 		} catch (Exception e) {
-			MyLog.d(e.getMessage());
+			MyLog.d("==updateData=="+e.getMessage());
 		}
 		return -1;
 	}
@@ -138,9 +138,7 @@ public class DbHelper extends SQLiteOpenHelper {
 			try {
 				db.beginTransaction();
 				for (int i = 0; i < count; i++) {
-
 					ContentValues values = new ContentValues();
-
 					for (int j = 0; j < namesize; j++) {
 						values.put(dataSetList.nameList.get(j),
 								dataSetList.valueList.get(i * namesize + j));
@@ -149,20 +147,15 @@ public class DbHelper extends SQLiteOpenHelper {
 				}
 				db.setTransactionSuccessful();
 			} catch (Exception e) {
-				// TODO: handle exception
+				MyLog.d("=insertData="+e.getMessage());
 			} finally {
 				db.endTransaction();
 			}
 		}
-
 	}
 
 	/**
-	 * 
-	 * @Title:DbHelper
-	 * @Description: 更新数据
-	 * @author Comsys-WH1510032
-	 * @return 返回类型  
+	 * 更新数据
 	 * @param table
 	 * @param where
 	 */
@@ -172,30 +165,23 @@ public class DbHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * 
-	 * @Title:DbHelper
-	 * @Description: 更新数据
-	 * @author Comsys-WH1510032
-	 * @return 返回类型  
-	 * @param where
+	 * 更新数据
+	 * @param sql
 	 */
-	public void delete(String where) {
+	public void delete(String sql) {
 		SQLiteDatabase db = getWritableDatabase();
-		db.execSQL(where);
+		db.execSQL(sql);
 	}
 	
 	/**
-	 * 
-	 * @Title:DbHelper
-	 * @Description: 更新数据
-	 * @author Comsys-WH1510032
-	 * @return 返回类型  
-	 * @param where
+	 * 更新数据
+	 * @param sql 完整的sql语句
+	 * @return boolean
 	 */
-	public boolean update(String where) {
+	public boolean update(String sql) {
 		SQLiteDatabase db = getWritableDatabase();
 		try {
-			db.execSQL(where);
+			db.execSQL(sql);
 			return true;
 		} catch (Exception e) {
 			MyLog.d(e.getMessage());
@@ -208,46 +194,36 @@ public class DbHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * 
-	 * @Title:DbHelper
-	 * @Description: 查询
-	 * @author Comsys-WH1510032
-	 * @param where
+	 * 查询
 	 * @param table
+	 * @param where
 	 * @return Cursor
 	 */
-	public Cursor query(String where, String table) {
+	public Cursor query(String table,String where) {
 		Cursor cursor = null;
 		SQLiteDatabase db = this.getReadableDatabase();
 		cursor = db.query(table, null, where, null, null, null, null);
 		return cursor;
 	}
+	
 	/**
-	 * 
-	 * @Title:DbHelper
-	 * @Description: 查询
-	 * @author Comsys-WH1510032
-	 * @param where
-	 * @param table
+	 * 查询
+	 * @param sql 完整的sql语句
 	 * @return Cursor
 	 */
-	public Cursor query(String where) {
+	public Cursor query(String sql) {
 		Cursor cursor = null;
 		SQLiteDatabase db = this.getReadableDatabase();
-		cursor = db.rawQuery(where, null);
+		cursor = db.rawQuery(sql, null);
 		return cursor;
 	}
 
 	/**
-	 * 
-	 * @Title:DbHelper
-	 * @Description: 依表字段删除数据
-	 * @author Comsys-WH1510032
-	 * @return 返回类型  
+	 * 依表字段删除数据
 	 * @param tableName
 	 * @param column
 	 * @param value
-	 * @return
+	 * @return boolean
 	 */
 	public boolean delete(String tableName, String field, String value) {
 		SQLiteDatabase db = getWritableDatabase();

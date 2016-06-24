@@ -25,7 +25,7 @@ public class DbUtilImplement implements DbLocalUtil {
 	public boolean insertData(Context mContext, String mTableName,
 			ContentValues values) {
 		DbHelper db = DbHelper.getInstance(mContext);
-		return db.insertData(values, mTableName);
+		return db.insertData(mTableName, values);
 	}
 	
 	@Override
