@@ -89,7 +89,7 @@ public class Dbsql {
 	
 	String mycollection_sql = "create table "
 			+ CommonText.MYCOLLECTION
-			+ "(id integer primary key autoincrement,cId TEXT,userId TEXT,topicId TEXT,title TEXT,content TEXT,from_url TEXT,topic_from TEXT,"
+			+ "(id integer primary key autoincrement,cId TEXT,userId TEXT,topicId TEXT,title TEXT,content TEXT,from_url TEXT,site_name TEXT,link_site TEXT,"
 			+ "shareUserId TEXT,sharename TEXT,sharenamecity TEXT,createtime TEXT,type TEXT,temp TEXT)";
 	
 	
@@ -101,12 +101,16 @@ public class Dbsql {
 			+ CommonText.MYWORDS
 			+ "(id integer primary key autoincrement,word TEXT,type TEXT,createtime TEXT,temp TEXT)";
 	
+	String temp_sql = "create table "
+			+ CommonText.TEMP_TABLE
+			+ "(id integer primary key autoincrement,temp TEXT,temp1 TEXT,temp2 TEXT,temp3 TEXT,temp4 TEXT,temp5 TEXT,temp6 TEXT,temp7 TEXT,temp8 TEXT)";
+	
 	/* 创建数据库表的语句 */
 	public String createTableSql[] = {userinfo_aql,baseinfo_aql,
 				work_experience_aql,evaluation_aql,character_aql,education_aql,training_aql,job_intension_aql,
 				otherinfo_aql,otherinfo1_aql,otherinfo2_aql,
 				project_experience_aql,professional_skill_aql,learning_inschool_aql,practicalexperience_inschool_aql,
-				mycollection_sql,mywords_sql,
-				coverfile_sql};
+				mycollection_sql,mywords_sql,coverfile_sql,
+				temp_sql};
 
 }

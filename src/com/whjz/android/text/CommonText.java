@@ -19,35 +19,30 @@ public class CommonText {
 	
 	// 数据库名称常量
 	public static final String DATABASE_NAME = "IResume.db";
+	
 	// 数据库版本常量
 	public static final int DATEBASE_VERSION = 1;
 	
-	// 数据库表名称常量
 	public static final String USERINFO="userinfo";// 用户注册信息
 	public static final String BASEINFO="baseinfo";// 基本信息
 	public static final String WORKEXPERIENCE="work_experience";// 工作经历
 	public static final String EVALUATION="evaluation";// 自我评价
 	public static final String CHARACTER="character";// 自我评价
 	public static final String JOBINTENSION="job_intension";// 求职意向
-	
 	public static final String EDUCATION="education";// 教育背景
 	public static final String EDUCATION_TRAIN="education_train";// 培顺经历
-	
 	public static final String OTHERINFO="otherinfo";// 其他信息 （语言能力）
 	public static final String OTHERINFO1="otherinfo1";// 其他信息 （证书）
 	public static final String OTHERINFO2="otherinfo2";// 其他信息  （其他信息）
 	
-	// 人才附加内容
 	public static final String PROJECT_EXPERIENCE = "project_experience"; // 项目经验
 	public static final String PROFESSIONAL_SKILL = "professional_skill"; // 专业技能
 	public static final String LEARNING_INSCHOOL = "learning_inschool"; // 在校学习情况
 	public static final String PRACTICALEXPERIENCE_INSCHOOL = "practicalexperience_inschool"; // 在校实践经验
 	
-	// home cover bg
 	public static final String COVER_FILE = "cover_file"; // cover文件下载
-	
-	// 收藏
 	public static final String MYCOLLECTION = "mycollection"; // 我的收藏
+	public static final String MYWORDS = "mywords"; // 留言板
 	
-	public static final String MYWORDS = "mywords"; // 我的留言
+	public static final String TEMP_TABLE = "temp_table"; // 公用临时表
 }
