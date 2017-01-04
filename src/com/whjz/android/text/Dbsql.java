@@ -89,7 +89,7 @@ public class Dbsql {
 	
 	String mycollection_sql = "create table "
 			+ CommonText.MYCOLLECTION
-			+ "(id integer primary key autoincrement,cId TEXT,userId TEXT,topicId TEXT,title TEXT,content TEXT,from_url TEXT,site_name TEXT,link_site TEXT,"
+			+ "(id integer primary key autoincrement,cId TEXT,userId TEXT,topicId TEXT,title TEXT,content TEXT,from_url TEXT,detail_url TEXT,site_name TEXT,link_site TEXT,"
 			+ "shareUserId TEXT,sharename TEXT,sharenamecity TEXT,createtime TEXT,type TEXT,temp TEXT)";
 	
 	

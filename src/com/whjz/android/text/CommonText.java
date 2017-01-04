@@ -9,7 +9,7 @@ package com.whjz.android.text;
  */
 public class CommonText {
 	
-	public static final boolean DEBUG = true;//日志输出开关,true:打印输出，false:关闭打印输出
+	public static final boolean DEBUG = false;//日志输出开关,true:打印输出，false:关闭打印输出
 	public static final String LOGTAG = "CJLog";
 	public static final boolean UNSECRET= true;//是否加密，false不加密；true加密
 	public static final char SECRET='z';//加密密钥
@@ -19,6 +19,9 @@ public class CommonText {
 	
 	// 数据库名称常量
 	public static final String DATABASE_NAME = "IResume.db";
+	
+	// 管理员账户
+	public static boolean ADMIN =  true;
 	
 	// 数据库版本常量
 	public static final int DATEBASE_VERSION = 1;
